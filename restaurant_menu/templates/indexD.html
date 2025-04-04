@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Restaurant food is ready</h1>
+    {% for meal in meals %}
+        <h2>{{ meal.1 }}</h3>
+
+            <!-- We are iterating through the item class in the models.py file-->
+            {% for row in item_list %} <!-- 'item_list' would give you the list of database records, 'item_list', it is a special variable --> 
+            <!-- so django is looking for this type of naming convention which is 'item' that is the name of a class in the data model with '_list' which would give you the list of database recoreds -->
+                {% if row.meal_type == meal.0 %}
+                    {% if row.status == 0 %}
+                        <h3><del>{{ row.meal }}</del></h3>
+                        <p>{{ row.description }}</p>
+                    {% else %}    
+                        <h3>{{ row.meal }}</h3>
+                        <p>{{ row.description }}</p>                        
+                    {% endif %}
+                {% endif %}    
+            {% endfor %}
+    {% endfor %}
+</body>
+</html>
+
+
+<!-- Used the jinja if conditional -->

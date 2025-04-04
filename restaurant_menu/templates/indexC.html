@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Restaurant food is ready</h1>
+    {% for meal in meals %} <!--iterating through the tuple of tupe-->
+    <h2>{{ meal.1 }}</h3> <!-- To get index 1 value-->
+
+    <!-- We are iterating through the item class in the models.py file-->
+    {% for row in item_list %} <!-- 'item_list' would give you the list of database records  -->
+        <h3>{{ row.meal }}</h3>
+        <p>{{ row.description }}</p>
+    {% endfor %}
+    {% endfor %}
+</body>
+</html>
+
+
+<!--Jinja for loop-->
